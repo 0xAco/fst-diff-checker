@@ -23,7 +23,7 @@ en remplaçant les valeurs entre chevrons par les chemins vers les fichiers corr
 - `99LL` et `99UL`: idem pour le seuil 99%
 - `999LL` et `999UL`: idem pour le seuil 99.9%
 
-> [!NOTE] L'ordre des fichiers est important et vérifier que le formattage csv est bon (aucun test n'est effectué en guise de vérification)
+> L'ordre des fichiers est important et vérifier que le formattage csv est bon (aucun test n'est effectué en guise de vérification)
 
 ### Exemple
 ```sh
