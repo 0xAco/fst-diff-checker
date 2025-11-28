@@ -1,0 +1,30 @@
+syntaxe :
+./fst-mapping.py <SNP-file> <q95LL> <q95UL> <q99LL> <q99UL> <q999LL> <q999UL>
+ - où tous les noms entre chevrons sont les chemins vers les fichiers correspondants
+ - l'ordre des fichiers est important
+ - attention au bon formattage des JSON (y'a aucun test de validité dessus)
+
+exemple pour SCO :
+
+S:\dev\python\fst-mapping>python3 .\fst-mapping.py .\data\SCO\PectenSNPs-HWE-PairwiseFst-SCO.csv .\data\SCO\SCO_FST_q95_LL.csv .\data\SCO\SCO_FST_q95_UL.csv .\data\SCO\SCO_FST_q99_LL.csv .\data\SCO\SCO_FST_q99_UL.csv .\data\SCO\SCO_FST_q999_LL.csv .\data\SCO\SCO_FST_q999_UL.csv
+
+résultat dans la console :
+ARM-DNZ ns
+ARM-ELO ns
+ARM-MOX ns
+ARM-ROS ns
+AUB-CAM ns
+AUB-DNZ ns
+AUB-ELO ns
+AUB-MOX ns
+AUB-ROS ns
+CAM-DNZ ns
+CAM-ELO ns
+CAM-MOX ns
+CAM-ROS ns
+DNZ-ELO ns
+DNZ-MOX ns
+DNZ-ROS ns
+ELO-MOX ns
+ELO-ROS ns
+MOX-ROS ns
