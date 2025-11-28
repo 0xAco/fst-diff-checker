@@ -23,7 +23,7 @@ def loadFiles(flist):
       csvreader = csv.DictReader(f, delimiter=";")
       for j, row in enumerate(csvreader):
         if isBaseFile: 
-          if j == 0: matrix.append([]) # prepare headers line
+          if j == 0: matrix.append([]) # prepare headers line - only once
           matrix.append([])            # prepare content line
         siteR = row.get("")
         for siteC, val in row.items():
@@ -63,9 +63,17 @@ def print_matrix(m):
     line += "]]" if i == len(m) - 1 else "]"
     print(line)
 
-def generate_csv(matrix, data):
+def generate_csv(matrix, data, filename):
   print_matrix(matrix)
-  return None
+  for i in range(1, len(matrix)):
+    siteC = matrix[i][0]
+    for j in range(1, i):
+      siteR = matrix[0][j]
+      matrix[i][j] = data.get(f"{siteR}<>{siteC}").get("diffIndicator")
+  print_matrix(matrix)
+  with open(f"diff-check.csv", "w", newline="") as f:
+    writer = csv.writer(f, delimiter=";")
+    writer.writerows(matrix)
 
 def main(argv):
   if (len(argv) < 8):
@@ -76,6 +84,6 @@ def main(argv):
   # print values in the console
   # for sites, d in computedDiff.items():
   #   print(sites, d["diffIndicator"])
-  generate_csv(csvMatrix, computedDiff)
+  generate_csv(csvMatrix, computedDiff, argv[1])
 
 main(sys.argv)
