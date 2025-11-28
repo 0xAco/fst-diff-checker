@@ -61,4 +61,6 @@ Voici les valeurs attendues en fonction de quels seuils sont atteints:
 - `***` si la valeur sort des **99.9%**
 
 ### Export au format csv
-en cours de développement
+Une fois les valeurs calculées, un fichier `diff-check.csv` est généré à la racine du dossier.
+
+Voilà des bisous
