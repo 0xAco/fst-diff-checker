@@ -63,14 +63,13 @@ def print_matrix(m):
     line += "]]" if i == len(m) - 1 else "]"
     print(line)
 
-def generate_csv(matrix, data, filename):
-  print_matrix(matrix)
+def generate_csv(matrix, data):
   for i in range(1, len(matrix)):
     siteC = matrix[i][0]
     for j in range(1, i):
       siteR = matrix[0][j]
       matrix[i][j] = data.get(f"{siteR}<>{siteC}").get("diffIndicator")
-  print_matrix(matrix)
+
   with open(f"diff-check.csv", "w", newline="") as f:
     writer = csv.writer(f, delimiter=";")
     writer.writerows(matrix)
@@ -81,9 +80,9 @@ def main(argv):
     exit(1)
   csvMatrix, extractedValues = loadFiles(argv[1:])
   computedDiff = computeDiff(extractedValues)
-  # print values in the console
-  # for sites, d in computedDiff.items():
-  #   print(sites, d["diffIndicator"])
-  generate_csv(csvMatrix, computedDiff, argv[1])
+  # print raw values in the console
+  for sites, d in computedDiff.items():
+    print(sites, d["diffIndicator"])
+  generate_csv(csvMatrix, computedDiff)
 
 main(sys.argv)
